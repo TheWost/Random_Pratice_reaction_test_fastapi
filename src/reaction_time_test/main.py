@@ -29,6 +29,11 @@ class ReactionTime(BaseModel):
     reaction_time: int
 
 
+@app.get("/", name="main_page")
+def main_page(request: Request):
+    return templates.TemplateResponse(request, name="index.html")
+
+
 @app.get("/results", name="result_page")
 def result_page(request: Request):
     return templates.TemplateResponse(

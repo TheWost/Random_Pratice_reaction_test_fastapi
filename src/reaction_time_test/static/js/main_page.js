@@ -58,13 +58,16 @@ function startGame() {
 }
 
 async function sendReactionTime(reactionTime) {
-  return await fetch("/submit_reaction_time", {
+  const response = await fetch("/submit_reaction_time", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ reaction_time: reactionTime }),
   });
+  if (response.redirected) {
+    window.location.href = response.url;
+  }
 }
 
 const mainMenu = createMainMenu();

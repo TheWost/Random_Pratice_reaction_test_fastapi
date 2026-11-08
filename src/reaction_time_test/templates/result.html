@@ -10,8 +10,8 @@
   </body>
   <script type="module">
   import { createResultPage } from "{{ url_for('static', path='js/result.js') }}"
-    const currentScore = 1;
-    const bestScore = 2;
+    const currentScore = {{ currentScore }};
+    const bestScore = {{ bestScore }}
     const resultPage = createResultPage(currentScore, bestScore);
 
   document.body.append(resultPage);
