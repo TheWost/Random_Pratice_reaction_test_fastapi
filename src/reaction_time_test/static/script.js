@@ -8,7 +8,7 @@ const body = document.body;
 
 
 
-startButton.addEventListener("click", startGame());
+startButton.addEventListener("click", startGame);
 
 function startGame() {
   const form = document.createElement("form");
@@ -54,7 +54,7 @@ function toggleTwoButtons(b1, b2) {
 
 
   b1.style.display = b1Hidden ? "block" : "none";
-  b2.style.dislpay = b1Hidden ? "none" : "block";
+  b2.style.display = b1Hidden ? "none" : "block";
 }
 
 function createButton(bg = yellow) {
