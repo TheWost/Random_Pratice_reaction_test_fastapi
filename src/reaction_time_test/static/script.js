@@ -3,7 +3,7 @@ const yellow = getComputedStyle(document.documentElement).getPropertyValue("--ye
 const red = getComputedStyle(document.documentElement).getPropertyValue("--red").trim();
 
 const startButton = createButton();
-const body = docuemnt.body
+const body = document.body
 
 
 startButton.addEventListener("click", startGame());
