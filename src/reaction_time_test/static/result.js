@@ -14,6 +14,7 @@ function createResultPage() {
   const arrow = document.createElement("p").textContent = " -> "
 
   utils.setBigElement(currentScore, bestScoreText, arrow)
+  backButton.style.width = "400px;"
 
   if (utils.newBest()) {
     utils.setYellowColor(currentScore, bestScoreText, arrow)
@@ -23,9 +24,13 @@ function createResultPage() {
     utils.setGreenColor(bestScoreText)
   }
 
+  const seperator = Elements.createSeperator()
 
-
-  console.log(resultContainer, backButton, currentScore, arrow, currentScore, bestScoreText, currentScoreText)
+  resultContainer.appendChild(currentScoreText)
+  resultContainer.appendChild(arrow)
+  resultContainer.appendChild(bestScoreText)
+  resultContainer.appendChild(seperator)
+  resultContainer.appendChild(backButton)
 }
 
 

@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import * as Utils from "./utils.js"
 
 export function createButton(bg = Utils.yellow) {
@@ -27,4 +28,10 @@ export function createPixelContainer(element = document.createElement("div")) {
 export function createBackButton() {
   const button = createButton(bg = Utils.red)
   return button
+}
+
+export function createSeperator() {
+  const seperator = createElement("div")
+  seperator.classList.add("seperator")
+  return seperator
 }

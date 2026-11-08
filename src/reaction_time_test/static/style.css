@@ -50,3 +50,6 @@ body {
 .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--red), 4px 4px 0 var(--purple); }
 .btn-b { background: var(--cyan); }
 .btn-c { background: var(--green); }
+.seperator {
+  border-bottom: 1px solid #ddd;
+}
