@@ -1,6 +1,5 @@
-
-
 import * as Elements from "./elements.js";
+import * as Utils from "./utils.js"
 
 const body = document.body;
 
@@ -26,7 +25,7 @@ function startGame() {
   const form = document.createElement("form");
   form.classList.add("pixel-box");
 
-  const waitButton = Elements.createButton(Elements.red);
+  const waitButton = Elements.createButton(Utils.red);
   waitButton.textContent = "WAIT";
 
   const clickButton = Elements.createGreenButton();
@@ -53,7 +52,7 @@ function startGame() {
   body.appendChild(form);
 
   setTimeout(() => {
-    Elements.toggleTwoButtons(clickButton, waitButton);
+    Utils.toggleTwoButtons(clickButton, waitButton);
     startTime = performance.now();
   }, randomNum);
 }

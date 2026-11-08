@@ -1,10 +1,17 @@
+import * as Elements from "./elements.js"
 const body = document.body
-const result_container = create_pixel_container()
+const resultContainer = Elements.createPixelContainer()
+const backButton = Elements.createBackButton()
+const bestScore = 20;
+const currentScore = 50;
 
-function create_back_button(element) {
-  const element = document.createElement("button")
-  button
+
+function createResultPage() {
+
 }
 
-body.appendChild(result_container)
+
+
+
+
 

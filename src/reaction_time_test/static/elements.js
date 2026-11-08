@@ -1,17 +1,6 @@
-export const yellow = getComputedStyle(document.documentElement)
-  .getPropertyValue("--yellow").trim();
+import * as Utils from "./utils.js"
 
-export const red = getComputedStyle(document.documentElement)
-  .getPropertyValue("--red").trim();
-
-export function toggleTwoButtons(b1, b2) {
-  const b1Hidden = b1.style.display === "none";
-
-  b1.style.display = b1Hidden ? "block" : "none";
-  b2.style.display = b1Hidden ? "none" : "block";
-}
-
-export function createButton(bg = yellow) {
+export function createButton(bg = Utils.yellow) {
   const button = document.createElement("button");
   button.classList.add("btn");
   button.style.background = bg;
@@ -33,4 +22,9 @@ export function createGreenButton() {
 export function createPixelContainer(element = document.createElement("div")) {
   element.classList.add("pixel-box");
   return element;
+}
+
+export function createBackButton() {
+  const button = createButton(bg = Utils.red)
+  return button
 }
