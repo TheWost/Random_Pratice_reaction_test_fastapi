@@ -58,7 +58,7 @@ function startGame() {
 }
 
 async function sendReactionTime(reactionTime) {
-  return await fetch("/reaction_time", {
+  return await fetch("/submit_reaction_time", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
