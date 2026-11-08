@@ -1,39 +1,51 @@
-const start_button = docuemnt.createElement("button")
+const startButton = docuemnt.createElement("button")
 const body = docuemnt.body
 
 
 // Colors:
 const yellow = getComputedStyle(document.documentElement).getPropertyValue("--yellow").trim();
 
-start_button.addEventListener("click", function () {
+startButton.addEventListener("click", function () {
 
 })
 
 
-function start_game() {
+function startGame() {
   const form = document.createElement("form");
   form.classList.add("pixel-box")
 
-  const wait_button = create_button(bg = yellow);
-  const click_button = create_green_button();
+  const waitButton = createButton(bg = yellow);
+  const clickButton = createGreenButton();
 
+  let randomNum = Math.floor(Math.random() * 6001) + 2000;
+
+  clickButton.style.display = "none";
 }
 
-function create_button(bg = yellow) {
+
+function toggleTwoButtons(b1, b2) {
+  const b1Hidden = b1.style.display === "none";
+
+
+  b1.style.display = b1Hidden ? "block" : "none";
+  b2.style.dislpay = b1Hidden ? "none" : "block";
+}
+
+function createButton(bg = yellow) {
   const button = document.createElement("button");
   button.classList.add("btn")
   button.style.background = bg
   return button
 }
 
-function create_blue_button() {
-  const blue_button = create_button()
-  blue_button.classList.add("btn-b")
-  return blue_button
+function createBlueButton() {
+  const blueButton = createButton()
+  blueButton.classList.add("btn-b")
+  return blueButton
 }
 
-function create_green_button() {
-  const green_button = create_button()
-  green_button.classList.add("btn-c")
-  return green_button
+function createGreenButton() {
+  const greenButton = createButton()
+  greenButton.classList.add("btn-c")
+  return greenButton
 }
