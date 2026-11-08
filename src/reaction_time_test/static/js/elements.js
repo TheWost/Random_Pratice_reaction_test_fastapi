@@ -26,6 +26,9 @@ export function createPixelContainer(element = document.createElement("div")) {
 
 export function createBackButton() {
   const button = createButton(Utils.red)
+  button.addEventListener("click", () => {
+    window.location.href = "http://localhost:8000/";
+  });
   return button
 }
 

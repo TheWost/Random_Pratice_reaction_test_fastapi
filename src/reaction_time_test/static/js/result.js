@@ -1,17 +1,17 @@
 import * as Elements from "./elements.js"
 import * as utils from "./utils.js"
 
-export function createResultPage(bestScore, currentScore) {
+export function createResultPage(currentScore, bestScore) {
   const resultContainer = Elements.createPixelContainer();
   const backButton = Elements.createBackButton();
   backButton.textContent = "BACK";
   const smallNumberContainer = Elements.createSmallNumberContainer()
 
   const currentScoreText = document.createElement("p");
-  currentScoreText.textContent = currentScore;
+  currentScoreText.textContent = currentScore + "ms";
 
   const bestScoreText = document.createElement("p");
-  bestScoreText.textContent = bestScore;
+  bestScoreText.textContent = bestScore + "ms";
 
   const arrow = document.createElement("p");
   arrow.textContent = "---";
@@ -20,17 +20,14 @@ export function createResultPage(bestScore, currentScore) {
 
   utils.setBigElement(...elements);
 
-  styleScores(currentScoreText, bestScoreText, elements);
+  styleScores(currentScore, bestScore, elements);
 
-  backButton.style.width = "400px";
-
-  const separator = Elements.createSeperator();
+  backButton.style.width = "100%";
 
   smallNumberContainer.append(...elements);
 
   resultContainer.append(
     smallNumberContainer,
-    separator,
     backButton
   );
 
@@ -39,10 +36,12 @@ export function createResultPage(bestScore, currentScore) {
 
 function styleScores(currentScore, bestScore, elements) {
   utils.setScoreClass(...elements)
-  if (utils.newBest()) {
+  if (utils.newBest(currentScore, bestScore)) {
     utils.setYellowColor(...elements);
   } else {
-    utils.setRedColor(currentScore);
-    utils.setGreenColor(bestScore);
+    const currentScoreText = elements[0]
+    const bestScoreText = elements[2]
+    utils.setRedColor(currentScoreText);
+    utils.setGreenColor(bestScoreText);
   }
 }
