@@ -1,9 +1,10 @@
-const startButton = docuemnt.createElement("button")
-const body = docuemnt.body
-
-
 // Colors:
 const yellow = getComputedStyle(document.documentElement).getPropertyValue("--yellow").trim();
+const red = getComputedStyle(document.documentElement).getPropertyValue("--red").trim();
+
+const startButton = createButton();
+const body = docuemnt.body
+
 
 startButton.addEventListener("click", function () {
 
@@ -14,12 +15,29 @@ function startGame() {
   const form = document.createElement("form");
   form.classList.add("pixel-box")
 
-  const waitButton = createButton(bg = yellow);
-  const clickButton = createGreenButton();
+  const waitButton = createButton(bg = red);
 
   let randomNum = Math.floor(Math.random() * 6001) + 2000;
+  let startTime;
 
+  const clickButton = createGreenButton();
   clickButton.style.display = "none";
+  clickButton.addEventListener("click", () => {
+    const endTime = performance.now();
+    const reactionTime = endTime - startTime;
+    console.log(reactionTime);
+  })
+
+
+  setTimeout(() => {
+    toggleTwoButtons(clickButton, waitButton)
+    startTime = performance.now();
+  }, randomNum);
+
+}
+
+function displayResults() {
+  form.display.style = "none";
 }
 
 
