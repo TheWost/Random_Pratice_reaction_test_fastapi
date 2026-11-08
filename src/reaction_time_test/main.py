@@ -26,7 +26,9 @@ def main_page(request: Request):
 @app.get("/results", name="result_page")
 def result_page(request: Request):
     return templates.TemplateResponse(
-        request, name="result.html", context={"reaction_time": 69.696969}
+        request,
+        name="result.html",
+        context={"currentScore": 69.696969, "bestScore": 29.292929},
     )
 
 
