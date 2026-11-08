@@ -9,13 +9,12 @@
   <body>
   </body>
   <script type="module">
-    const body = document.body
-    const result_container = 
+  import { createResultPage } from "{{ url_for('static', path='js/result.js') }}"
+  const currentScore = {{ current_score }};
+  const bestScore = {{ best_score }};
+  const resultPage = createResultPage(bestScore, currentScore);
 
-      function create_container(element = document.createElement("div")){
-        element.classList.add
-      }
-
+  document.body.append(resultPage);
 
   </script>
 </html>
