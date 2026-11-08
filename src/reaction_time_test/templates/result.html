@@ -10,9 +10,10 @@
   </body>
   <script type="module">
   import { createResultPage } from "{{ url_for('static', path='js/result.js') }}"
-    const currentScore = {{ currentScore }};
-    const bestScore = {{ bestScore }}
-    const resultPage = createResultPage(currentScore, bestScore);
+  const currentScore = {{ currentScore }};
+  const bestScore = {{ bestScore }};
+  const newBest = {{ newBest | tojson }};
+  const resultPage = createResultPage(currentScore, bestScore, newBest);
 
   document.body.append(resultPage);
 

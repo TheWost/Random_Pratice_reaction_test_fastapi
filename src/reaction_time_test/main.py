@@ -20,6 +20,7 @@ app.mount(
 class ScoreHistory:
     current_score: int | None = None
     best_score: int | None = None
+    new_best: int | None = None
 
 
 score_history = ScoreHistory()
@@ -42,6 +43,7 @@ def result_page(request: Request):
         context={
             "currentScore": score_history.current_score,
             "bestScore": score_history.best_score,
+            "newBest": score_history.new_best,
         },
     )
 
@@ -50,10 +52,12 @@ def result_page(request: Request):
 def submit_reaction_time(request: Request, data: ReactionTime):
     score_history.current_score = data.reaction_time
 
-    if (
+    score_history.new_best = (
         score_history.best_score is None
         or data.reaction_time < score_history.best_score
-    ):
+    )
+
+    if score_history.new_best:
         score_history.best_score = data.reaction_time
 
     results_url = request.url_for("result_page")

@@ -1,7 +1,7 @@
 import * as Elements from "./elements.js"
 import * as utils from "./utils.js"
 
-export function createResultPage(currentScore, bestScore) {
+export function createResultPage(currentScore, bestScore, newBest) {
   const resultContainer = Elements.createPixelContainer();
   const backButton = Elements.createBackButton();
   backButton.textContent = "BACK";
@@ -20,7 +20,7 @@ export function createResultPage(currentScore, bestScore) {
 
   utils.setBigElement(...elements);
 
-  styleScores(currentScore, bestScore, elements);
+  styleScores(elements, newBest);
 
   backButton.style.width = "100%";
 
@@ -34,9 +34,9 @@ export function createResultPage(currentScore, bestScore) {
   return resultContainer;
 }
 
-function styleScores(currentScore, bestScore, elements) {
+function styleScores(elements, newBest) {
   utils.setScoreClass(...elements)
-  if (utils.newBest(currentScore, bestScore)) {
+  if (newBest) {
     utils.setYellowColor(...elements);
   } else {
     const currentScoreText = elements[0]
