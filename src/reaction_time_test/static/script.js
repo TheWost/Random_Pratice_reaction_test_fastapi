@@ -17,16 +17,23 @@ function startGame() {
 
   const waitButton = createButton(bg = red);
 
+  const clickButton = createGreenButton();
+  clickButton.style.display = "none";
+
+  form.appendChild(waitButton)
+  form.appendChild(clickButton)
+
   let randomNum = Math.floor(Math.random() * 6001) + 2000;
   let startTime;
 
-  const clickButton = createGreenButton();
-  clickButton.style.display = "none";
+
   clickButton.addEventListener("click", () => {
     const endTime = performance.now();
     const reactionTime = endTime - startTime;
     console.log(reactionTime);
   })
+
+  body.appendChild(form);
 
 
   setTimeout(() => {
@@ -67,3 +74,5 @@ function createGreenButton() {
   greenButton.classList.add("btn-c")
   return greenButton
 }
+
+body.appendChild(startButton);
