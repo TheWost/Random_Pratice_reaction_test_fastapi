@@ -43,6 +43,9 @@ body {
   letter-spacing: 2px;
   width: 200px;
 }
+.big-element{
+  font-size: 40px;
+}
 .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--red), 10px 10px 0 var(--purple); }
 .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--red), 4px 4px 0 var(--purple); }
 .btn-b { background: var(--cyan); }
