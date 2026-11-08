@@ -6,10 +6,7 @@ const startButton = createButton();
 const body = docuemnt.body
 
 
-startButton.addEventListener("click", function () {
-
-})
-
+startButton.addEventListener("click", startGame());
 
 function startGame() {
   const form = document.createElement("form");
