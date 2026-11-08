@@ -2,15 +2,33 @@
 const yellow = getComputedStyle(document.documentElement).getPropertyValue("--yellow").trim();
 const red = getComputedStyle(document.documentElement).getPropertyValue("--red").trim();
 
-const startButton = createButton();
-startButton.textContent = "START";
 const body = document.body;
 
+function createStartButton() {
+  const startButton = createButton();
+  startButton.textContent = "START";
+  startButton.addEventListener("click", startGame);
+  return startButton;
+}
 
+function createPixelContainer() {
+  const container = document.createElement("div");
+  container.classList.add("pixel-box");
+  return container;
+}
 
-startButton.addEventListener("click", startGame);
+function createMainMenu() {
+  const container = createPixelContainer();
+  const startButton = createStartButton();
+  container.appendChild(startButton);
+
+  return container;
+}
 
 function startGame() {
+  const menu = document.querySelector(".pixel-box");
+  menu.style.display = "none";
+
   const form = document.createElement("form");
   form.classList.add("pixel-box");
 
@@ -76,4 +94,6 @@ function createGreenButton() {
   return greenButton
 }
 
-body.appendChild(startButton);
+let mainMenu = createMainMenu()
+
+body.appendChild(mainMenu);
