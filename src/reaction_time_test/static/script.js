@@ -3,18 +3,22 @@ const yellow = getComputedStyle(document.documentElement).getPropertyValue("--ye
 const red = getComputedStyle(document.documentElement).getPropertyValue("--red").trim();
 
 const startButton = createButton();
-const body = document.body
+startButton.textContent = "START";
+const body = document.body;
+
 
 
 startButton.addEventListener("click", startGame());
 
 function startGame() {
   const form = document.createElement("form");
-  form.classList.add("pixel-box")
+  form.classList.add("pixel-box");
 
   const waitButton = createButton(bg = red);
+  waitButton.textContent = "WAIT";
 
   const clickButton = createGreenButton();
+  clickButton.textContent = "CLICK";
   clickButton.style.display = "none";
 
   form.appendChild(waitButton)
