@@ -42,7 +42,7 @@ function startGame() {
     e.preventDefault();
 
     const endTime = performance.now();
-    const reactionTime = endTime - startTime;
+    const reactionTime = Math.round(endTime - startTime);
 
     console.log(reactionTime);
 
