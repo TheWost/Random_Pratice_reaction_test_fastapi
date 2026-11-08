@@ -34,3 +34,9 @@ export function createSeperator() {
   seperator.classList.add("seperator")
   return seperator
 }
+
+export function createSmallNumberContainer() {
+  const container = document.createElement("div");
+  container.classList.add("small-number-container")
+  return container
+}

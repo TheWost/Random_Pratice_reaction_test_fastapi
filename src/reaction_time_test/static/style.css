@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   margin: 0;
 }
+
 .pixel-box {
   background: var(--bg);
   border: 4px solid var(--white);
@@ -30,6 +31,7 @@ body {
   margin-bottom: 28px;
   max-width: 720px;
 }
+
 .btn {
   font-family: var(--font);
   font-size: 12px;
@@ -43,13 +45,55 @@ body {
   letter-spacing: 2px;
   width: 200px;
 }
-.big-element{
-  font-size: 40px;
-}
+
+
 .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--red), 10px 10px 0 var(--purple); }
 .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--red), 4px 4px 0 var(--purple); }
 .btn-b { background: var(--cyan); }
 .btn-c { background: var(--green); }
+
 .seperator {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--yellow);
+  width: 100%;
+}
+
+.small-number-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 25px;
+  font-family: var(--font);
+  width: 100%;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.result-number-padding {
+  padding: 0;
+  margin: 0;
+}
+
+.big-element {
+  font-size: 200px;
+  line-height: 1;
+  padding: 10px;
+  margin: 0;
+}
+
+.small-number-container p {
+  margin: 0;
+}
+
+.small-number-container p:nth-child(2) {
+  font-size: 65px;
+  opacity: 0.7;
+}
+
+.value { color: var(--yellow); }
+.score {
+  font-family: var(--font);
+  font-size: 100px;
+  color: var(--yellow);
+  text-shadow: 6px 6px 0 var(--purple);
 }

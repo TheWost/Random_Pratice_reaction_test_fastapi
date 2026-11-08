@@ -7,6 +7,9 @@ export const red = getComputedStyle(document.documentElement)
 export const green = getComputedStyle(document.documentElement)
   .getPropertyValue("--green").trim();
 
+export const ink = getComputedStyle(document.documentElement)
+  .getPropertyValue("--ink").trim();
+
 export function toggleTwoButtons(b1, b2) {
   const b1Hidden = b1.style.display === "none";
 
@@ -16,7 +19,7 @@ export function toggleTwoButtons(b1, b2) {
 
 export function setBigElement(...elements) {
   for (const element of elements) {
-    element.classList.add("bigElement")
+    element.classList.add("big-element")
   }
 }
 
@@ -39,6 +42,24 @@ export function setGreenColor(...elements) {
   })
 }
 
+export function setInkColor(...elements) {
+  elements.forEach(element => {
+    element.style.color = ink;
+  })
+}
+
 export function newBest(currentScore, bestScore) {
-  return currentScore > bestScore;
+  return currentScore < bestScore;
+}
+
+export function setScoreClass(...elements) {
+  elements.forEach(element => {
+    element.classList.add("score")
+  })
+}
+
+export function setCustomSize(size, ...elements) {
+  elements.forEach(element => {
+    element.style.fontSize = size;
+  })
 }

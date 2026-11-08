@@ -4,6 +4,8 @@ import * as utils from "./utils.js"
 export function createResultPage(bestScore, currentScore) {
   const resultContainer = Elements.createPixelContainer();
   const backButton = Elements.createBackButton();
+  backButton.textContent = "BACK";
+  const smallNumberContainer = Elements.createSmallNumberContainer()
 
   const currentScoreText = document.createElement("p");
   currentScoreText.textContent = currentScore;
@@ -12,9 +14,9 @@ export function createResultPage(bestScore, currentScore) {
   bestScoreText.textContent = bestScore;
 
   const arrow = document.createElement("p");
-  arrow.textContent = " -> ";
+  arrow.textContent = "---";
 
-  const elements = [currentScoreText, bestScoreText, arrow];
+  const elements = [currentScoreText, arrow, bestScoreText];
 
   utils.setBigElement(...elements);
 
@@ -24,10 +26,10 @@ export function createResultPage(bestScore, currentScore) {
 
   const separator = Elements.createSeperator();
 
+  smallNumberContainer.append(...elements);
+
   resultContainer.append(
-    currentScoreText,
-    arrow,
-    bestScoreText,
+    smallNumberContainer,
     separator,
     backButton
   );
@@ -36,6 +38,7 @@ export function createResultPage(bestScore, currentScore) {
 }
 
 function styleScores(currentScore, bestScore, elements) {
+  utils.setScoreClass(...elements)
   if (utils.newBest()) {
     utils.setYellowColor(...elements);
   } else {
