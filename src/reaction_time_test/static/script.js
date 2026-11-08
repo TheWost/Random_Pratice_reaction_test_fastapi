@@ -46,10 +46,14 @@ function startGame() {
   let startTime;
 
 
-  clickButton.addEventListener("click", () => {
+  clickButton.addEventListener("click", async (e) => {
+    e.preventDefault()
     const endTime = performance.now();
     const reactionTime = endTime - startTime;
     console.log(reactionTime);
+
+    await sendReactionTime(reactionTime)
+
   })
 
   body.appendChild(form);
@@ -60,6 +64,16 @@ function startGame() {
     startTime = performance.now();
   }, randomNum);
 
+}
+
+async function sendReactionTime(reactionTime) {
+  return await fetch("/reaction_time", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ reaction_time: reactionTime }),
+  })
 }
 
 function displayResults() {
